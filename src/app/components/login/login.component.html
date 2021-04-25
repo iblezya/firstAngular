@@ -1,0 +1,38 @@
+<style>
+  body {
+    height: 100vh;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  }
+  .bg {
+    background-image: url(foto/login.jpg);
+    background-position: center center;
+  }
+  section{
+    background: white;
+    opacity: 0.95;
+  }
+</style>
+<body >
+<section class="container my-5 w-75 rounded-2 shadow">
+  <div class="row align-items-strech">
+    <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded-2"></div>
+
+    <div class="col p-5 rounded-end-2">
+      <h2>Logueo de Usuarios</h2>
+      <!-- Login -->
+      <form>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Usuario" name="txtUsuario">
+          <label for="floatingInput">Usuario</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="txtPassword">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="d-grid mb-5">
+          <input type="submit" class="btn btn-primary btn-lg" name="btnIniciar" value="Iniciar Sesion">
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
