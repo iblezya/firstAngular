@@ -1,8 +1,26 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-      CRUD Angular PHP
+<nav class="navbar fixed-top navbar-expand-sm shadow rounded-bottom">
+  <div class="container-fluid ps-4">
+    <a class="navbar-brand text-decoration-none text-dark" href="#">
+      <img src="assets/images/laptop-svgrepo-com.svg" alt="" width="35" height="24" class="d-inline-block align-text-top">
+      CRUD
     </a>
-  </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbar_menu">
+      <ul class="navbar-nav mr-auto">
+        <li class="px-2">
+          <a class="nav-link " routerLink="/">Inicio</a>
+        </li>
+        <li class="px-2">
+          <a class="nav-link " routerLink="/login">Login</a>
+        </li>
+        <li class="px-2">
+          <a class="nav-link " href="#">Link</a>
+        </li>
+      </ul>
+    </div>
+    </div>
 </nav>

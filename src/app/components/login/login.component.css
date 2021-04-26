@@ -1,0 +1,15 @@
+#login {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+
+
+
+}
+.bg {
+  background-image: url(../../../assets/images/login.jpg);
+  background-position: center center;
+}
+section {
+  background: white;
+  opacity: 0.95;
+}
