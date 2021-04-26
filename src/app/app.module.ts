@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,14 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     LoginComponent,
     LandingPageComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

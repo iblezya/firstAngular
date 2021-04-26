@@ -6,7 +6,7 @@
 
 }
 .bg {
-  background-image: url(../../../assets/images/login.jpg);
+  background-image: url(/assets/images/login.jpg);
   background-position: center center;
 }
 section {

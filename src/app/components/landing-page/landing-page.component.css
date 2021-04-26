@@ -1,5 +1,5 @@
 .banner-image{
-  background-image: url(../../../assets/images/banner.jpg);
+  background-image: url(/assets/images/banner.jpg);
   object-position: bottom;
   background-position: 75% 45%;
   background-attachment: fixed;
