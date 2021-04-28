@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark shadow">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
@@ -9,16 +9,16 @@
 </nav>
 <section class="container-md">
   <h1>Crud PHP</h1>
-  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#Agregar">
     <i class="bi bi-plus-circle-fill"></i> AGREGAR
   </button>
 </section>
 <section class="table-responsive container-md mt-3 mb-3">
-  <table class="table table-striped">
+  <table class="table table-striped align-middle shadow">
     <thead class="table-dark">
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
+      <tr *ngIf="listProductos(); else sin">
+        <th>Codigo</th>
+        <th>Descripcion</th>
         <th>Marca</th>
         <th>Precio</th>
         <th>Stock</th>
@@ -26,58 +26,74 @@
       </tr>
     </thead>
     <tbody id="resultado">
-
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.codigo}}</td>
+        <td>{{producto.descripcion}}</td>
+        <td>{{producto.marca}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.stock}}</td>
+        <td width="230">
+          <a type="button" (click)="selectProductos(producto.codigo)" class="btn btn-warning me-3" data-bs-toggle="modal" data-bs-target="#Agregar"><i class="bi bi-pencil-square"></i> Editar</a>
+          <button class="btn btn-danger" (click)="deleteProductos(producto.codigo)"><i class="bi bi-trash-fill"></i> Eliminar</button>
+        </td>
+      </tr>
     </tbody>
   </table>
-</section>
+  <ng-template #sin>
+    <p>No hay usuarios registrados.</p>
+  </ng-template>
 
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">AGREGAR NUEVO PRODUCTO</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+  <!-- Modal  Agregar Nuevo-->
+  <div class="modal fade" id="Agregar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">AGREGAR NUEVO PRODUCTO</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
 
-      <div class="modal-body">
+        <div class="modal-body">
 
-        <form [formGroup]="producto" (ngSubmit)="onSubmit()">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" formControlName="descripcion">
-            <small *ngIf="f.descripcion.invalid && f.descripcion.touched" class="text-danger">
-              Por favor, ingresa una descripcion.
-            </small>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Marca</label>
-            <input type="text" class="form-control" formControlName="marca">
-            <small *ngIf="f.marca.invalid && f.marca.touched" class="text-danger">
-              Por favor, ingresa una marca.
-            </small>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Precio</label>
-            <input type="text" class="form-control" formControlName="precio">
-            <small *ngIf="f.precio.invalid && f.precio.touched" class="text-danger">
-              Por favor, ingrese un precio.
-            </small>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Stock</label>
-            <input type="text" class="form-control" formControlName="stock">
-            <small *ngIf="f.stock.invalid && f.stock.touched" class="text-danger">
-              Por favor, ingresa una cantidad para el stock.
-            </small>
-          </div>
-          <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-secondary mx-3" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary" [disabled]="producto.invalid">Submit</button>
-          </div>
-        </form>
+          <form [formGroup]="producto">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Descripcion</label>
+              <input type="text" [(ngModel)]="producto2.descripcion" class="form-control" formControlName="descripcion">
+              <small *ngIf="f.descripcion.invalid && f.descripcion.touched" class="text-danger">
+                Por favor, ingresa una descripcion.
+              </small>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Marca</label>
+              <input type="text" [(ngModel)]="producto2.marca" class="form-control" formControlName="marca">
+              <small *ngIf="f.marca.invalid && f.marca.touched" class="text-danger">
+                Por favor, ingresa una marca.
+              </small>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Precio</label>
+              <input type="text" [(ngModel)]="producto2.precio" class="form-control" formControlName="precio">
+              <small *ngIf="f.precio.invalid && f.precio.touched" class="text-danger">
+                Por favor, ingrese un precio.
+              </small>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Stock</label>
+              <input type="text" [(ngModel)]="producto2.stock" class="form-control" formControlName="stock">
+              <small *ngIf="f.stock.invalid && f.stock.touched" class="text-danger">
+                Por favor, ingresa una cantidad para el stock.
+              </small>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button (click)="Editar()" class="btn btn-warning me-2" [disabled]="producto.invalid"><i class="bi bi-pencil-square"></i> Editar</button>
+              <button (click)="Guardar()" class="btn btn-primary" [disabled]="producto.invalid"><i class="bi bi-plus-circle-fill"></i> Guardar</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
+
+
+</section>
