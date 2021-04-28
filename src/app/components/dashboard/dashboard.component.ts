@@ -35,6 +35,13 @@ export class DashboardComponent implements OnInit {
 
   get f() { return this.producto.controls; }
 
+  Nuevo(){
+    this.producto2.descripcion="";
+    this.producto2.marca="";
+    this.producto2.precio="";
+    this.producto2.stock="";
+  }
+
   Guardar() {
     this.createProductos();
     this.producto.reset();
@@ -90,7 +97,7 @@ export class DashboardComponent implements OnInit {
           Swal.fire({
             title: 'Eliminado',
             text: 'Se elimino exitosamente',
-            icon: 'warning',
+            icon: 'success',
           });
           this.readProductos();
         }
